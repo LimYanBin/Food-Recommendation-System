@@ -100,15 +100,15 @@ while item_number <= len(menu):
 id_number = st.number_input('Enter the ID number:', min_value=1, value=1)
 
 if id_number in menu:
-    st.markdown(f"<div style='font-size:24px;'>You had selected: {menu[id_number]}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size:24px;margin-bottom:20px'>You had selected: {menu[id_number]}</div>", unsafe_allow_html=True)
 
     recommendations = [(pair[1], score) for pair, score in confidence.items() if pair[0] == id_number]
     recommendations.sort(key=lambda x: x[1], reverse=True)
 
-    st.markdown(f"<div style='font-size:24px;'>Top 3 recommendations for {menu.get(id_number, 'Unknown Item')} are:</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size:24px;margin-bottom:10px;padding:20px;background-color:#133853'>Top 3 recommendations for {menu.get(id_number, 'Unknown Item')} are:</div>", unsafe_allow_html=True)
 
     for idx, (rec_id, score) in enumerate(recommendations[:3], start=1):
-        st.markdown(f"<div style='margin:10px;font-size:20px;'>{idx}.&nbsp;&nbsp;&nbsp;&nbsp;{menu.get(rec_id, 'Unknown Item')}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='margin:0px;font-size:20px;padding:20px;background-color:#cee9ff;color:#29272d'>{idx}.&nbsp;&nbsp;&nbsp;&nbsp;{menu.get(rec_id, 'Unknown Item')}</div>", unsafe_allow_html=True)
 
 else:
     st.write("Item not found. Please enter a valid ID number.")

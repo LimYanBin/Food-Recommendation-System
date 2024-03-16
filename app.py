@@ -105,7 +105,7 @@ if id_number in menu:
     recommendations = [(pair[1], score) for pair, score in confidence.items() if pair[0] == id_number]
     recommendations.sort(key=lambda x: x[1], reverse=True)
 
-    st.markdown(f"<div style='font-size:24px;margin-bottom:10px;padding:20px;background-color:#133853'>Top 3 recommendations for {menu.get(id_number, 'Unknown Item')} are:</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size:24px;margin-bottom:10px;padding:20px;background-color:#FFFFFF'>Top 3 recommendations for {menu.get(id_number, 'Unknown Item')} are:</div>", unsafe_allow_html=True)
 
     for idx, (rec_id, score) in enumerate(recommendations[:3], start=1):
         st.markdown(f"<div style='margin:0px;font-size:20px;padding:20px;background-color:#cee9ff;color:#29272d'>{idx}.&nbsp;&nbsp;&nbsp;&nbsp;{menu.get(rec_id, 'Unknown Item')}</div>", unsafe_allow_html=True)
